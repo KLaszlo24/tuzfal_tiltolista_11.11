@@ -1,5 +1,80 @@
 body {
-    background-color: rgb(232, 219, 202);
-    color:rgb(58, 46, 135);
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 30px;
+}
+ 
+h1, h2 {
+    text-align: center;
+}
+ 
+section {
+    background-color: white;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+ 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+ 
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+ 
+th {
+    background-color: #333;
+    color: white;
+}
+ 
+.disabled-rule {
+    color: #999;
+    font-style: italic;
+}
+ 
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    margin: auto;
+}
+ 
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+ 
+button {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+ 
+button:hover {
+    background-color: #555;
+}
+ 
+.success {
+    color: green;
+    text-align: center;
+}
+ 
+.error {
+    color: red;
+    text-align: center;
 }
 

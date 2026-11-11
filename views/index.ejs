@@ -1,15 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %>
-    </title>
-    <link rel="stylesheet" href="/style.css">
+    <title>Tűzfal tiltólista</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1><%= title %></h1>
-    Hello EJS!
+ 
+    <h1>Tűzfal tiltólista</h1>
+
+ 
+    <section>
+        <h2>Új szabály hozzáadása</h2>
+ 
+        <form action="/" method="POST">
+ 
+            <label for="priority">Prioritás:</label>
+            <input type="number" id="priority" name="priority">
+ 
+            <label for="mac">MAC-cím:</label>
+            <input type="text" id="mac" name="mac">
+ 
+            <label for="enabled">Engedélyezve:</label>
+            <select id="enabled" name="enabled" required>
+                <option value="true">Bekapcsolás</option>
+                <option value="false">Kikapcsolás</option>
+            </select>
+ 
+            <button type="submit">Szabály hozzáadása</button>
+ 
+        </form>
+    </section>
+
+    <section>
+        <h2>Szabályok listája</h2>
+ 
+        <% if (locals.success) { %>
+            <p class="success"><%= success %></p>
+        <% } %>
+ 
+        <% if (locals.error) { %>
+            <p class="error"><%= error %></p>
+        <% } %>
+ 
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Prioritás</th>
+                    <th>MAC-cím</th>
+                    <th>Engedélyezve</th>
+                </tr>
+            </thead>
+ 
+            <tbody>
+                <% rules.forEach(rule => { %>
+                    <tr class="<%= rule.enabled ? '' : 'disabled-rule' %>">
+                        <td><%= rule.id %></td>
+                        <td><%= rule.priority %></td>
+                        <td><%= rule.mac %></td>
+                        <td><%= rule.enabled ? 'Bekapcsolva' : 'Kikapcsolva' %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+ 
+        <% if (rules.length === 0) { %>
+            <p>Nincsenek szabályok.</p>
+        <% } %>
+    </section>
+ 
 </body>
 </html>
